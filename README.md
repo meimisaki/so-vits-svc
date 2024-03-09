@@ -1,3 +1,13 @@
+---
+title: ${title}
+emoji: ${emoji}
+colorFrom: ${colorFrom}
+colorTo: ${colorTo}
+sdk: gradio
+app_file: app.py
+pinned: false
+---
+
 <div align="center">
 <img alt="LOGO" src="https://avatars.githubusercontent.com/u/127122328?s=400&u=5395a98a4f945a3a50cb0cc96c2747505d190dbc&v=4" width="300" height="300" />
   

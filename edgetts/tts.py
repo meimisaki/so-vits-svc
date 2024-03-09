@@ -8,19 +8,20 @@ from langdetect import DetectorFactory, detect
 
 DetectorFactory.seed = 0
 
-TEXT = sys.argv[1]
-LANG = detect(TEXT) if sys.argv[2] == "Auto" else sys.argv[2]
-RATE = sys.argv[3]
-VOLUME = sys.argv[4]
-GENDER = sys.argv[5] if len(sys.argv) == 6 else None
-OUTPUT_FILE = "tts.wav"
-
-print("Running TTS...")
-print(f"Text: {TEXT}, Language: {LANG}, Gender: {GENDER}, Rate: {RATE}, Volume: {VOLUME}")
-
 async def _main() -> None:
+    TEXT = sys.argv[1]
+    LANG = sys.argv[2]
+    RATE = sys.argv[3]
+    VOLUME = sys.argv[4]
+    GENDER = sys.argv[5] if 5 < len(sys.argv) else None
+    OUTPUT_FILE = sys.argv[6] if 6 < len(sys.argv) else "tts.wav"
+
+    print("Running TTS...")
+    print(f"Text: {TEXT}, Language: {LANG}, Gender: {GENDER}, Rate: {RATE}, Volume: {VOLUME}")
+
     voices = await VoicesManager.create()
-    if GENDER is not None:
+    if LANG == "Auto":
+        LANG = detect(TEXT)
         # From "zh-cn" to "zh-CN" etc.
         if LANG == "zh-cn" or LANG == "zh-tw":
             LOCALE = LANG[:-2] + LANG[-2:].upper()

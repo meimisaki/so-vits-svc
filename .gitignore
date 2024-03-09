@@ -151,6 +151,7 @@ inference/chunks_temp.json
 logs
 hubert/checkpoint_best_legacy_500.pt
 configs/config.json
+configs/config.yaml
 filelists/test.txt
 filelists/train.txt
 filelists/val.txt
@@ -161,7 +162,4 @@ filelists/val.txt
 .idea/vcs.xml
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/inspectionProfiles/Project_Default.xml
-pretrain/
 .vscode/launch.json
-
-trained/**/
